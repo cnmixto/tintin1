@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Aventuras de Tintín - Guía Completa de Episodios (3 Temporadas)</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #26354d;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gold: #f59e0b;
+            --accent-bili: #00a1d6;
+            --accent-bili-hover: #00b5e5;
+            --accent-allvideo: #10b981;
+            --accent-allvideo-hover: #059669;
+            --border-color: #334155;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+        header.hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 100%),
+                        url('https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX1440_FMjpg_.jpg') center/cover no-repeat;
+            border-bottom: 1px solid var(--border-color);
+            padding: 48px 24px;
+        }
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+        .hero-content {
+            max-width: 820px;
+        }
+        .series-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+            color: #ffffff;
+        }
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .badge {
+            padding: 4px 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+        }
+        .badge-imdb {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: 700;
+        }
+        .badge-tags {
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+        .series-synopsis {
+            font-size: 1.08rem;
+            color: #e2e8f0;
+            margin-bottom: 24px;
+        }
+        .controls-bar {
+            background: #1e293b;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 14px 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        }
+        .controls-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tab-btn {
+            background: #0f172a;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--accent-gold);
+            color: #0f172a;
+            border-color: var(--accent-gold);
+        }
+        .search-box {
+            flex: 1;
+            min-width: 240px;
+            max-width: 360px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 9px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: #0f172a;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+        .search-box input:focus {
+            outline: 2px solid var(--accent-gold);
+            border-color: transparent;
+        }
+        .season-section {
+            margin-top: 36px;
+            padding: 0 24px;
+        }
+        .season-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .season-header h2 {
+            font-size: 1.75rem;
+            color: var(--accent-gold);
+        }
+        .season-count {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .episode-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            list-style: none;
+        }
+        .episode-card {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        .episode-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+        .ep-thumb-wrap {
+            position: relative;
+            background: #000;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: 100%;
+        }
+        .ep-thumb-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .ep-badge-code {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(15, 23, 42, 0.88);
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 5px;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+        .ep-content {
+            padding: 18px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .ep-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .ep-title {
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .ep-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .rating-badge {
+            background: #334155;
+            color: #f8fafc;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        .ep-synopsis {
+            color: #cbd5e1;
+            font-size: 0.98rem;
+        }
+        .ep-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+            margin-top: 4px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .link-box {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .btn-watch {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 7px 12px;
+            border-radius: 6px;
+            color: #fff;
+            width: fit-content;
+            transition: opacity 0.15s;
+        }
+        .btn-bili {
+            background-color: var(--accent-bili);
+        }
+        .btn-bili:hover {
+            background-color: var(--accent-bili-hover);
+        }
+        .btn-allvideo {
+            background-color: var(--accent-allvideo);
+        }
+        .btn-allvideo:hover {
+            background-color: var(--accent-allvideo-hover);
+        }
+        .raw-url {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            word-break: break-all;
+            text-decoration: none;
+        }
+        .raw-url:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .episode-card {
+                grid-template-columns: 1fr;
+            }
+            .series-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container hero-content">
+        <h1 class="series-title">Las Aventuras de Tintin</h1>
+        <div class="badges">
+            <span class="badge badge-imdb">IMDb 8,3</span>
+            <span class="badge">3 temporadas</span>
+            <span class="badge">39 episodios</span>
+            <span class="badge-tags">Infantil • Aventura • Excitante</span>
+        </div>
+        <p class="series-synopsis">
+            Tintín, eterno adolescente sin familia conocida, es reportero que en realidad actúa más como aventurero o detective. Viaja por todo el mundo acompañado de su inseparable perro Milú con el propósito de enfrentarse a las fuerzas del mal para proteger a los débiles y a los oprimidos y saciar su inagotable sed de aventuras.
+        </p>
+    </div>
+</header>
+
+<div class="controls-bar">
+    <div class="container controls-inner">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="filterSeason('all', this)">Todas las temporadas (39)</button>
+            <button class="tab-btn" onclick="filterSeason('1', this)">Temporada 1 (13)</button>
+            <button class="tab-btn" onclick="filterSeason('2', this)">Temporada 2 (13)</button>
+            <button class="tab-btn" onclick="filterSeason('3', this)">Temporada 3 (13)</button>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar episodio o palabra clave..." oninput="filterSearch()">
+        </div>
+    </div>
+</div>
+
+<main class="container">
+
+    <section class="season-section" data-season="1">
+        <div class="season-header">
+            <h2>Temporada 1</h2>
+            <span class="season-count">13 episodios</span>
+        </div>
+        <ul class="episode-list">
+    
+            <li class="episode-card" data-title="1. el cangrejo de las pinzas de oro - i" data-synopsis="una misteriosa etiqueta en una lata vacía de cangrejo lleva a tintín y milú a un peligroso encuentro con una banda de despiadados contrabandistas.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/e1e2ce13c38274fec6472e835923a3b0.jpg@720w_405h_1e_1c_90q" alt="1. El Cangrejo De Las Pinzas De Oro - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 1</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">1. El Cangrejo De Las Pinzas De Oro - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 1 oct 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Una misteriosa etiqueta en una lata vacía de cangrejo lleva a Tintín y Milú a un peligroso encuentro con una banda de despiadados contrabandistas.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652536777216" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 1)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652536777216" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652536777216</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092697/t1-ep-1/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 1)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092697/t1-ep-1/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092697/t1-ep-1/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="2. el cangrejo de las pinzas de oro - ii" data-synopsis="con un poco de ayuda de los detectives hernández y fernández, tintín, milú y el capitán haddock buscan llevar una operación de contrabando internacional ante la justicia.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/f2216569414eaebd8746d01ebde30b17.jpg@720w_405h_1e_1c_90q" alt="2. El Cangrejo De Las Pinzas De Oro - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 2</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">2. El Cangrejo De Las Pinzas De Oro - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 8 oct 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Con un poco de ayuda de los detectives Hernández y Fernández, Tintín, Milú y el capitán Haddock buscan llevar una operación de contrabando internacional ante la justicia.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652554209792" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 2)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652554209792" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652554209792</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092698/t1-ep-2/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 2)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092698/t1-ep-2/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092698/t1-ep-2/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="3. el secreto del unicornio - i" data-synopsis="un aparentemente inocente modelo antiguo de un barco revela un secreto que podría llevar a tintín y milú hasta un viejo tesoro.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/183d10f3600ce78db86e636934eb31a2.jpg@720w_405h_1e_1c_90q" alt="3. El Secreto Del Unicornio - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 3</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">3. El Secreto Del Unicornio - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 15 oct 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Un aparentemente inocente modelo antiguo de un barco revela un secreto que podría llevar a Tintín y Milú hasta un viejo tesoro.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652607556096" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 3)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652607556096" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652607556096</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092700/t1-ep-3/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 3)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092700/t1-ep-3/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092700/t1-ep-3/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="4. el secreto del unicornio - ii" data-synopsis="un codicioso coleccionista toma medidas drásticas para evitar que tintín, milú y el capitán haddock intenten reunir las tres partes del mapa de un antiguo tesoro.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/622e48f9476afd29a010401785b56915.jpg@720w_405h_1e_1c_90q" alt="4. El Secreto Del Unicornio - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 4</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">4. El Secreto Del Unicornio - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 22 oct 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Un codicioso coleccionista toma medidas drásticas para evitar que Tintín, Milú y el capitán Haddock intenten reunir las tres partes del mapa de un antiguo tesoro.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652622498816" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 4)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652622498816" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652622498816</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092725/t1-ep-4/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 4)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092725/t1-ep-4/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092725/t1-ep-4/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="5. el tesoro de rackam rojo" data-synopsis="con la ayuda del excéntrico profesor tornasol, tintín, milú y el capitán haddock se embarcan en un viaje para recuperar el tesoro hundido del legendario pirata, rackham el rojo.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/7331ccea14a67c13ed5bbb9950856c8c.jpg@720w_405h_1e_1c_90q" alt="5. El Tesoro De Rackam Rojo" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 5</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">5. El Tesoro De Rackam Rojo</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 29 oct 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Con la ayuda del excéntrico profesor Tornasol, Tintín, Milú y el capitán Haddock se embarcan en un viaje para recuperar el tesoro hundido del legendario pirata, Rackham el Rojo.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652636260864" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 5)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652636260864" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652636260864</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092727/t1-ep-5/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 5)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092727/t1-ep-5/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092727/t1-ep-5/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="6. los cigarros del faraón - i" data-synopsis="tras prometer ayudarle a un aturdido arqueólogo a encontrar las tumbas perdidas de un antiguo faraón, tintín y milú realizan un peligroso descubrimiento.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/26722673360b4abeda26d5454b2dfae1.jpg@720w_405h_1e_1c_90q" alt="6. Los Cigarros Del Faraón - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 6</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">6. Los Cigarros Del Faraón - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 5 nov 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tras prometer ayudarle a un aturdido arqueólogo a encontrar las tumbas perdidas de un antiguo faraón, Tintín y Milú realizan un peligroso descubrimiento.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652654087168" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 6)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652654087168" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652654087168</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092730/t1-ep-6/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 6)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092730/t1-ep-6/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092730/t1-ep-6/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="7. los cigarros del faraón - ii" data-synopsis="tintín y milú persiguen a una sociedad secreta de contrabandistas desesperados de egipto hasta la india.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/479353afc74ebfbcb9ebe71da1b164ff.jpg@720w_405h_1e_1c_90q" alt="7. Los Cigarros Del Faraón - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 7</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">7. Los Cigarros Del Faraón - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 12 nov 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y Milú persiguen a una sociedad secreta de contrabandistas desesperados de Egipto hasta la India.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652668505088" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 7)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652668505088" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652668505088</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092731/t1-ep-7/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 7)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092731/t1-ep-7/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092731/t1-ep-7/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="8. el loto azul - i" data-synopsis="tintín y milú viajan a hong kong donde unen fuerzas con una sociedad dedicada a eliminar el contrabando.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/1dc07c4a2e0438b475f5b223baefac58.jpg@720w_405h_1e_1c_90q" alt="8. El Loto Azul - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 8</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">8. El Loto Azul - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 19 nov 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y Milú viajan a Hong Kong donde unen fuerzas con una sociedad dedicada a eliminar el contrabando.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652683185152" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 8)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652683185152" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652683185152</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092755/t1-ep-8/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 8)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092755/t1-ep-8/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092755/t1-ep-8/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="9. el loto azul - ii" data-synopsis="tintín y milú se enfrentan cara a cara con los líderes de un grupo de traficantes internacionales en una confrontación final.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/10b6f035ee58cc6dea02621bf05306ad.jpg@720w_405h_1e_1c_90q" alt="9. El Loto Azul - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 9</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">9. El Loto Azul - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 26 nov 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y Milú se enfrentan cara a cara con los líderes de un grupo de traficantes internacionales en una confrontación final.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652700224000" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 9)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652700224000" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652700224000</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092756/t1-ep-9/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 9)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092756/t1-ep-9/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092756/t1-ep-9/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="10. la isla negra - i" data-synopsis="tintín y milú se encuentran en el lugar equivocado en el momento equivocado y descubren una operación de falsificación de dinero.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/b27128c3dc5fe9dc67740bace335c6e8.jpg@720w_405h_1e_1c_90q" alt="10. La Isla Negra - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 10</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">10. La Isla Negra - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 8 dic 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y Milú se encuentran en el lugar equivocado en el momento equivocado y descubren una operación de falsificación de dinero.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652720802304" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 10)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652720802304" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652720802304</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092809/t1-ep-10/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 10)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092809/t1-ep-10/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092809/t1-ep-10/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="11. la isla negra - ii" data-synopsis="tintín y milú viajan a una isla misteriosa cerca de escocia, la cual sospechan que es la fuente de la conspiración del dinero falso.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/22ff6d4e130dc15193a6941a2853e440.jpg@720w_405h_1e_1c_90q" alt="11. La Isla Negra - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 11</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">11. La Isla Negra - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 8 dic 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y Milú viajan a una isla misteriosa cerca de Escocia, la cual sospechan que es la fuente de la conspiración del dinero falso.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652740856320" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 11)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652740856320" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652740856320</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092810/t1-ep-11/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 11)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092810/t1-ep-11/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092810/t1-ep-11/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="12. el asunto tornasol - i" data-synopsis="extraños eventos en moulinsart y el secuestro del profesor tornasol llevan a tintín, milú y al capitán haddock a una peligrosa misión de rescate.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/de29b2ba49c5adb7af82c79ac8f1f5af.jpg@720w_405h_1e_1c_90q" alt="12. El Asunto Tornasol - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 12</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">12. El Asunto Tornasol - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 15 dic 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Extraños eventos en Moulinsart y el secuestro del profesor Tornasol llevan a Tintín, Milú y al capitán Haddock a una peligrosa misión de rescate.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652759468544" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 12)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652759468544" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652759468544</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092812/t1-ep-12/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 12)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092812/t1-ep-12/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092812/t1-ep-12/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="13. el asunto tornasol - ii" data-synopsis="tintín, milú y el capitán haddock deben rescatar a su excéntrico amigo, el profesor tornasol de los secuestradores bordurios.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/cab55100a66dc71662d9da1d85f3a842.jpg@720w_405h_1e_1c_90q" alt="13. El Asunto Tornasol - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T1 • EP. 13</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">13. El Asunto Tornasol - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 22 dic 1991</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín, Milú y el capitán Haddock deben rescatar a su excéntrico amigo, el profesor Tornasol de los secuestradores bordurios.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652855544320" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T1 Ep 13)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652855544320" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652855544320</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092814/t1-ep-13/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T1 Ep 13)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092814/t1-ep-13/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092814/t1-ep-13/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+        </ul>
+    </section>
+    
+    <section class="season-section" data-season="2">
+        <div class="season-header">
+            <h2>Temporada 2</h2>
+            <span class="season-count">13 episodios</span>
+        </div>
+        <ul class="episode-list">
+    
+            <li class="episode-card" data-title="1. la estrella misteriosa" data-synopsis="cuando un gran meteorito que contiene un poderoso mineral desconocido choca en el océano ártico, tintín, milú, el capitán haddock y un equipo de científicos salen a una peligrosa misión para encontrarlo.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/e0754d3df155b3764a1e822c8e7f8bd6.jpg@720w_405h_1e_1c_90q" alt="1. La Estrella Misteriosa" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 1</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">1. La Estrella Misteriosa</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 5 ene 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Cuando un gran meteorito que contiene un poderoso mineral desconocido choca en el océano Ártico, Tintín, Milú, el capitán Haddock y un equipo de científicos salen a una peligrosa misión para encontrarlo.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652877433344" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 1)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652877433344" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652877433344</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092983/t2-ep-1/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 1)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092983/t2-ep-1/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092983/t2-ep-1/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="2. la oreja rota - i" data-synopsis="tintín y milú buscan un ídolo perdido solo para descubrir que unos criminales desesperados también lo están buscando.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/51dc24dbd91b903fca47794ea91e8765.jpg@720w_405h_1e_1c_90q" alt="2. La Oreja Rota - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 2</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">2. La Oreja Rota - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 12 ene 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y Milú buscan un ídolo perdido solo para descubrir que unos criminales desesperados también lo están buscando.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652897094144" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 2)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652897094144" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652897094144</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092984/t2-ep-2/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 2)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092984/t2-ep-2/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092984/t2-ep-2/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="3. la oreja rota - ii" data-synopsis="la búsqueda de un ídolo perdido lleva a tintín y milú a través de una revolución y una peligrosa misión en la jungla para hallar una respuesta.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/0aeb61a1abc2c56c99b32c081fb538ff.jpg@720w_405h_1e_1c_90q" alt="3. La Oreja Rota - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 3</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">3. La Oreja Rota - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 19 ene 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">La búsqueda de un ídolo perdido lleva a Tintín y Milú a través de una revolución y una peligrosa misión en la jungla para hallar una respuesta.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652909284352" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 3)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652909284352" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652909284352</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092985/t2-ep-3/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 3)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092985/t2-ep-3/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092985/t2-ep-3/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="4. el cetro de ottokar - i" data-synopsis="una buena acción de tintín y milú con un ligeramente excéntrico investigador los lleva al inestable reino de syldavia.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/735d94bc98b469dc9267fb815812a5dd.jpg@720w_405h_1e_1c_90q" alt="4. El Cetro De Ottokar - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 4</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">4. El Cetro De Ottokar - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 26 ene 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Una buena acción de Tintín y Milú con un ligeramente excéntrico investigador los lleva al inestable reino de Syldavia.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652935367168" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 4)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652935367168" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652935367168</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092986/t2-ep-4/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 4)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092986/t2-ep-4/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092986/t2-ep-4/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="5. el cetro de ottokar - ii" data-synopsis="tintín y  milú deben recuperar el cetro perdido del rey ottokar antes de que el legítimo rey sea obligado a abdicar por fuerzas codiciosas.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/aeb8b629909aeb845e968ca3c6dfd7f0.jpg@720w_405h_1e_1c_90q" alt="5. El Cetro De Ottokar - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 5</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">5. El Cetro De Ottokar - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 2 feb 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y  Milú deben recuperar el cetro perdido del rey Ottokar antes de que el legítimo rey sea obligado a abdicar por fuerzas codiciosas.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652955028480" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 5)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652955028480" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652955028480</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092987/t2-ep-5/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 5)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092987/t2-ep-5/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092987/t2-ep-5/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="6. tintín en el tíbet - i" data-synopsis="cuando el avión de su amigo se estrella en las montañas del tíbet, tintín se niega a aceptar que está muerto y se lanza a un arriesgado viaje para encontrarlo.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/06cd52fc5c69b597cc3f925e8e387b74.jpg@720w_405h_1e_1c_90q" alt="6. Tintín En El Tíbet - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 6</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">6. Tintín En El Tíbet - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 5 abr 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Cuando el avión de su amigo se estrella en las montañas del Tíbet, Tintín se niega a aceptar que está muerto y se lanza a un arriesgado viaje para encontrarlo.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801652980718080" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 6)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801652980718080" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801652980718080</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092989/t2-ep-6/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 6)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092989/t2-ep-6/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092989/t2-ep-6/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="7. tintín en el tíbet - ii" data-synopsis="mientras busca a un amigo perdido en las peligrosas montañas del tíbet, tintín se encuentra al legendario yeti.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/fefa2e30f5c7fe092f6f12a5b7c16d42.jpg@720w_405h_1e_1c_90q" alt="7. Tintín En El Tíbet - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 7</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">7. Tintín En El Tíbet - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 12 abr 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Mientras busca a un amigo perdido en las peligrosas montañas del Tíbet, Tintín se encuentra al legendario Yeti.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653296470528" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 7)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653296470528" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653296470528</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1092991/t2-ep-7/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 7)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1092991/t2-ep-7/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1092991/t2-ep-7/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="8. tintín y los pícaros - i" data-synopsis="tintín cae en una peligrosa trampa después de que tres de sus amigos son arrestados equivocadamente en sudamérica.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/267be3badc69b88b71838b286071c403.jpg@720w_405h_1e_1c_90q" alt="8. Tintín Y Los Pícaros - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 8</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">8. Tintín Y Los Pícaros - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 19 abr 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín cae en una peligrosa trampa después de que tres de sus amigos son arrestados equivocadamente en Sudamérica.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653311937024" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 8)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653311937024" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653311937024</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093582/t2-ep-8/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 8)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093582/t2-ep-8/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093582/t2-ep-8/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="9. tintín y los pícaros - ii" data-synopsis="tintín queda atrapado en medio de un golpe de estado sudamericano mientras intenta rescatar a sus amigos.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/140d65301fead1af8f8b0037810b5747.jpg@720w_405h_1e_1c_90q" alt="9. Tintín Y Los Pícaros - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 9</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">9. Tintín Y Los Pícaros - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 26 abr 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín queda atrapado en medio de un golpe de Estado sudamericano mientras intenta rescatar a sus amigos.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653330418688" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 9)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653330418688" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653330418688</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093583/t2-ep-9/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 9)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093583/t2-ep-9/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093583/t2-ep-9/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="10. tintín en el país del oro negro - i" data-synopsis="tintín se infiltra encubierto al medio oriente  para resolver una misteriosa crisis petrolera e inadvertidamente se encuentra envuelto en un intento de golpe de estado.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/dbbac568cabeb1d85ad7434edf23aa6a.jpg@720w_405h_1e_1c_90q" alt="10. Tintín En El País Del Oro Negro - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 10</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">10. Tintín En El País Del Oro Negro - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 3 may 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín se infiltra encubierto al Medio Oriente  para resolver una misteriosa crisis petrolera e inadvertidamente se encuentra envuelto en un intento de golpe de Estado.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653343656448" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 10)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653343656448" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653343656448</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093584/t2-ep-10/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 10)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093584/t2-ep-10/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093584/t2-ep-10/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="11. tintín en el país del oro negro - ii" data-synopsis="mientras intenta resolver una misteriosa crisis petrolera, tintín descubre un diabólico plan para dar inicio a una guerra mundial.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/3c6f3c9076aabc2186d15d16d0e661fb.jpg@720w_405h_1e_1c_90q" alt="11. Tintín En El País Del Oro Negro - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 11</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">11. Tintín En El País Del Oro Negro - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 10 may 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Mientras intenta resolver una misteriosa crisis petrolera, Tintín descubre un diabólico plan para dar inicio a una guerra mundial.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653358337024" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 11)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653358337024" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653358337024</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093588/t2-ep-11/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 11)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093588/t2-ep-11/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093588/t2-ep-11/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="12. stock de coquis - i" data-synopsis="tintín y el capitán haddock viajan al khemed para rescatar al emir del peligro de tratantes armados que han derrocado a su gobierno.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/7245e7bb67ccb144e62439879e9fded2.jpg@720w_405h_1e_1c_90q" alt="12. Stock De Coquis - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 12</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">12. Stock De Coquis - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 17 may 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y el capitán Haddock viajan al Khemed para rescatar al emir del peligro de tratantes armados que han derrocado a su gobierno.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653375506944" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 12)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653375506944" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653375506944</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093590/t2-ep-12/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 12)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093590/t2-ep-12/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093590/t2-ep-12/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="13. stock de coquis - ii" data-synopsis="tintín y el capitán haddock intentan detener a un terrible círculo de traficantes de refugiados y terminan atrapados con otros prisioneros en el mar.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/156682f4f0edb177b830b04f60699cda.jpg@720w_405h_1e_1c_90q" alt="13. Stock De Coquis - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T2 • EP. 13</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">13. Stock De Coquis - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 24 may 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y el capitán Haddock intentan detener a un terrible círculo de traficantes de refugiados y terminan atrapados con otros prisioneros en el mar.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653396085248" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T2 Ep 13)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653396085248" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653396085248</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093592/t2-ep-13/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T2 Ep 13)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093592/t2-ep-13/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093592/t2-ep-13/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+        </ul>
+    </section>
+    
+    <section class="season-section" data-season="3">
+        <div class="season-header">
+            <h2>Temporada 3</h2>
+            <span class="season-count">13 episodios</span>
+        </div>
+        <ul class="episode-list">
+    
+            <li class="episode-card" data-title="1. vuelo 714 para sidney - i" data-synopsis="tintín queda atrapado en el secuestro de un desagradable millonario y descubre que un viejo adversario está detrás del atentado.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/c5f0c7c0467c4425c23fc01cc08d3b08.jpg@720w_405h_1e_1c_90q" alt="1. Vuelo 714 Para Sidney - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 1</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">1. Vuelo 714 Para Sidney - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 5 jul 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín queda atrapado en el secuestro de un desagradable millonario y descubre que un viejo adversario está detrás del atentado.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653412993536" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 1)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653412993536" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653412993536</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093595/t3-ep-1/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 1)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093595/t3-ep-1/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093595/t3-ep-1/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="2. vuelo 714 para sidney - ii" data-synopsis="mientras intenta rescatar a un desagradable millonario secuestrado, tintín recibe ayuda de una fuente insospechada.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/f25d4e8727fa65ca8b2968460b887f89.jpg@720w_405h_1e_1c_90q" alt="2. Vuelo 714 Para Sidney - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 2</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">2. Vuelo 714 Para Sidney - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 12 jul 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Mientras intenta rescatar a un desagradable millonario secuestrado, Tintín recibe ayuda de una fuente insospechada.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653433178624" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 2)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653433178624" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653433178624</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093596/t3-ep-2/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 2)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093596/t3-ep-2/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093596/t3-ep-2/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="3. las 7 bolas de cristal - i" data-synopsis="tintín investiga la misteriosa enfermedad que casualmente afecta a siete miembros de una expedición por sudamérica.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/f347dd06baa002982ed4fab7abe4b7fd.jpg@720w_405h_1e_1c_90q" alt="3. Las 7 Bolas De Cristal - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 3</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">3. Las 7 Bolas De Cristal - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 19 jul 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín investiga la misteriosa enfermedad que casualmente afecta a siete miembros de una expedición por Sudamérica.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653454543360" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 3)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653454543360" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653454543360</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093604/t3-ep-3/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 3)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093604/t3-ep-3/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093604/t3-ep-3/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="4. las 7 bolas de cristal - ii" data-synopsis="tintín y el capitán haddock descubren que el profesor tornasol ha sido raptado.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/689514a5184a54b35e70141eb0069a83.jpg@720w_405h_1e_1c_90q" alt="4. Las 7 Bolas De Cristal - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 4</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">4. Las 7 Bolas De Cristal - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 26 jul 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y el capitán Haddock descubren que el profesor Tornasol ha sido raptado.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653467781632" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 4)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653467781632" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653467781632</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093606/t3-ep-4/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 4)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093606/t3-ep-4/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093606/t3-ep-4/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="5. el templo del sol - i" data-synopsis="tintín y el capitán viajan a perú en pos del profesor tornasol.  cruzan las ardientes arenas del desierto persiguiendo a los captores.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/ef91d5d95c76ff9cf5757c3b079ba8f5.jpg@720w_405h_1e_1c_90q" alt="5. El Templo Del Sol - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 5</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">5. El Templo Del Sol - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 2 ago 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín y el capitán viajan a Perú en pos del profesor Tornasol.  Cruzan las ardientes arenas del desierto persiguiendo a los captores.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653478267904" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 5)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653478267904" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653478267904</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093607/t3-ep-5/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 5)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093607/t3-ep-5/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093607/t3-ep-5/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="6. el templo del sol - ii" data-synopsis="buscando a los prisioneros y al profesor tornasol, tintín y el capitán haddock se dirigen al &quot;templo del sol&quot;.  para alcanzar su destino, primero deben superar muchos obstáculos.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/ad00e65ed37bd5b187aa8dd1059163e2.jpg@720w_405h_1e_1c_90q" alt="6. El Templo Del Sol - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 6</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">6. El Templo Del Sol - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 9 ago 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Buscando a los prisioneros y al profesor Tornasol, Tintín y el capitán Haddock se dirigen al &quot;Templo del Sol&quot;.  Para alcanzar su destino, primero deben superar muchos obstáculos.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653497797632" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 6)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653497797632" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653497797632</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093611/t3-ep-6/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 6)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093611/t3-ep-6/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093611/t3-ep-6/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="7. las joyas de la castafiore - i" data-synopsis="cuando el capitán haddock se lastima, recibe una visita sorpresa de bianca castafiore, quien está preocupada por sus preciadas joyas.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/abb499574a798219d879bbf139271262.jpg@720w_405h_1e_1c_90q" alt="7. Las Joyas De La Castafiore - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 7</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">7. Las Joyas De La Castafiore - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 16 ago 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Cuando el capitán Haddock se lastima, recibe una visita sorpresa de Bianca Castafiore, quien está preocupada por sus preciadas joyas.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801653521914368" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 7)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801653521914368" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801653521914368</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093614/t3-ep-7/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 7)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093614/t3-ep-7/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093614/t3-ep-7/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="8. las joyas de la castafiore - ii" data-synopsis="cuando las preciadas joyas de bianca castafiore desaparecen, tintín investiga secretamente la situación.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/c64e28365d5ed30c678d3171b15bbaa0.jpg@720w_405h_1e_1c_90q" alt="8. Las Joyas De La Castafiore - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 8</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">8. Las Joyas De La Castafiore - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 23 ago 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Cuando las preciadas joyas de Bianca Castafiore desaparecen, Tintín investiga secretamente la situación.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801657350396928" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 8)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801657350396928" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801657350396928</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093617/t3-ep-8/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 8)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093617/t3-ep-8/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093617/t3-ep-8/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="9. objetivo la luna - i" data-synopsis="después de recibir un telegrama del profesor tornasol, tintín y el capitán haddock viajan para verlo en el centro atómico de syldavia.  pronto descubren que los documentos del cohete secreto han sido robados.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/4cf032cffce7baf0d797bac9273d24b8.jpg@720w_405h_1e_1c_90q" alt="9. Objetivo La Luna - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 9</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">9. Objetivo La Luna - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 30 ago 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Después de recibir un telegrama del profesor Tornasol, Tintín y el capitán Haddock viajan para verlo en el centro atómico de Syldavia.  Pronto descubren que los documentos del cohete secreto han sido robados.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801657373334016" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 9)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801657373334016" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801657373334016</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093618/t3-ep-9/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 9)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093618/t3-ep-9/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093618/t3-ep-9/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="10. objetivo la luna - ii" data-synopsis="a tintín y al capitán haddock les ofrecen formar parte de una expedición a la luna.  mientras ayudan al profesor tornasol a prepararse para el lanzamiento, tintín persiste en la búsqueda del espía infiltrado.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/af3ebf9adf16c80bb77b9ff9c036cde2.jpg@720w_405h_1e_1c_90q" alt="10. Objetivo La Luna - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 10</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">10. Objetivo La Luna - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 6 sept 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">A Tintín y al capitán Haddock les ofrecen formar parte de una expedición a la Luna.  Mientras ayudan al profesor Tornasol a prepararse para el lanzamiento, Tintín persiste en la búsqueda del espía infiltrado.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801657386310144" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 10)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801657386310144" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801657386310144</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093628/t3-ep-10/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 10)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093628/t3-ep-10/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093628/t3-ep-10/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="11. aterrizaje en la luna - i" data-synopsis="tintín, el capitán haddock, el profesor tornasol y wolff despegan hacia la luna.  pronto descubren que hernández y fernández se han escabullido a bordo.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/cef4d573a2afec5ce9e4366e2cddc18c.jpg@720w_405h_1e_1c_90q" alt="11. Aterrizaje En La Luna - I" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 11</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">11. Aterrizaje En La Luna - I</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 13 sept 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín, el capitán Haddock, el profesor Tornasol y Wolff despegan hacia la Luna.  Pronto descubren que Hernández y Fernández se han escabullido a bordo.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801657401514496" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 11)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801657401514496" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801657401514496</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093629/t3-ep-11/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 11)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093629/t3-ep-11/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093629/t3-ep-11/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="12. aterrizaje en la luna - ii" data-synopsis="tintín, el capitán haddock, tornasol, hernández, fernández y wolff descubren las maravillas de la luna.  también encuentran a otra persona a bordo del cohete que amenaza con dejarlos varados.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/e63f6096de7ce7927528ee76d6f32694.jpg@720w_405h_1e_1c_90q" alt="12. Aterrizaje En La Luna - II" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 12</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">12. Aterrizaje En La Luna - II</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 20 sept 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín, el capitán Haddock, Tornasol, Hernández, Fernández y Wolff descubren las maravillas de la Luna.  También encuentran a otra persona a bordo del cohete que amenaza con dejarlos varados.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801657417898496" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 12)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801657417898496" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801657417898496</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093630/t3-ep-12/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 12)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093630/t3-ep-12/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093630/t3-ep-12/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+            <li class="episode-card" data-title="13. tintín en américa" data-synopsis="tintín viaja a chicago para informar sobre los mafiosos y se encuentra cara a cara con un peligroso grupo criminal.">
+                <div class="ep-thumb-wrap">
+                    <img src="https://pic.bstarstatic.com/ugc/674048f16fa923115da03f364f5c03ae.jpg@720w_405h_1e_1c_90q" alt="13. Tintín En América" loading="lazy" onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/S/pv-target-images/99155181cb4450ab8210cba6bdd14f7b32a3f2e6afb266f108db75c04a1ed9fd._BR-6_AC_SX720_FMjpg_.jpg';">
+                    <span class="ep-badge-code">T3 • EP. 13</span>
+                </div>
+                <div class="ep-content">
+                    <div>
+                        <div class="ep-header">
+                            <h3 class="ep-title">13. Tintín En América</h3>
+                            <div class="ep-meta">
+                                <span class="rating-badge">TODOS</span>
+                                <span>⏱️ 22 min</span>
+                                <span>📅 27 sept 1992</span>
+                            </div>
+                        </div>
+                        <p class="ep-synopsis">Tintín viaja a Chicago para informar sobre los mafiosos y se encuentra cara a cara con un peligroso grupo criminal.</p>
+                    </div>
+                    <div class="ep-links">
+                        <div class="link-box">
+                            <a href="https://www.bilibili.tv/en/video/4801657433627136" target="_blank" rel="noopener noreferrer" class="btn-watch btn-bili">
+                                ▶ Ver en Bilibili (T3 Ep 13)
+                            </a>
+                            <a href="https://www.bilibili.tv/en/video/4801657433627136" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.bilibili.tv/en/video/4801657433627136</a>
+                        </div>
+                        <div class="link-box">
+                            <a href="https://www.allvideo.monster/videos/1093705/t3-ep-13/" target="_blank" rel="noopener noreferrer" class="btn-watch btn-allvideo">
+                                ▶ Ver en Allvideo.Monster (T3 Ep 13)
+                            </a>
+                            <a href="https://www.allvideo.monster/videos/1093705/t3-ep-13/" target="_blank" rel="noopener noreferrer" class="raw-url">https://www.allvideo.monster/videos/1093705/t3-ep-13/</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        
+        </ul>
+    </section>
+    
+</main>
+
+<script>
+    function filterSeason(season, btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.season-section').forEach(sec => {
+            if (season === 'all' || sec.getAttribute('data-season') === season) {
+                sec.style.display = 'block';
+            } else {
+                sec.style.display = 'none';
+            }
+        });
+    }
+
+    function filterSearch() {
+        const q = document.getElementById('searchInput').value.toLowerCase().trim();
+        document.querySelectorAll('.episode-card').forEach(card => {
+            const title = card.getAttribute('data-title') || '';
+            const syn = card.getAttribute('data-synopsis') || '';
+            if (!q || title.includes(q) || syn.includes(q)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
